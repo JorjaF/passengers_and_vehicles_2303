@@ -18,15 +18,14 @@ class Park
     @vehicles << vehicle
   end
 
-  def add_passenger(passenger)
-    @passengers << passengers
-  end
-
   def revenue
-    adult= []
-    @passengers.select do |passenger|
-      passenger.age >= 18
-      adult.count * @admission_price
+    adults = 0
+    @vehicles.map do |vehicle|
+      adults = vehicle.passengers.select do |passenger| 
+        passenger.age >= 18
+      end
     end
-  end
+        revenue = adults.count * @admission_price
+      revenue
+    end
 end
