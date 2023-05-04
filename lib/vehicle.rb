@@ -1,19 +1,34 @@
 class Vehicle
-  attr_reader :year, :make, :model, :speeding, :passengers
-  def initialize(year, make, model, speeding =false, passengers = [])
+
+  attr_reader :year, 
+              :make, 
+              :model,
+              :passengers
+              
+
+  def initialize(year, make, model)
     @year = year
     @make = make
     @model = model
-    @speeding = speeding
+    @speed = false
     @passengers = []
   end
 
-  def speed
-    @speeding = true
+  def speeding?
+    @speed
   end
 
-  def add_passenger(passengers)
+  def speed
+    @speed = true
+  end
+
+  def add_passenger(passenger)
     @passengers << passenger
-    {passengers.fetch_values(:name)}
+  end
+
+  def num_adults
+    @passengers.count do |passenger|
+      passenger.adult?
+    end
   end
 end

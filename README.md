@@ -136,4 +136,3 @@ Method Name                 | Return Value (type)
 `all_attendees`             | `Array` of `Passenger names as strings`
 `minors`                    | `Array` of `Passengers who are minors; names as strings`
 `adults`                    | `Array` of `Passengers who are adults; names as strings`
-
